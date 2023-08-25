@@ -1,0 +1,33 @@
+<%= form_with(model: @user) do |form| %>
+  <% if @user.errors.any? %>
+    <div style="color: red">
+      <ul>
+        <% @user.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :email, "E-MAIL", style: "display: block" %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div>
+    <%= form.label :name, "NOME", style: "display: block" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :role, "TIPO", style: "display: block" %>
+    <%= form.number_field :role %>
+  </div>
+
+  <br>
+
+  <div>
+    <%= form.submit "CRIAR USUÁRIO" %>
+    <%= link_to "CANCELAR", users_path %>
+  </div>
+<% end %>

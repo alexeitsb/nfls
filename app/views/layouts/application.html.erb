@@ -11,12 +11,24 @@
   </head>
 
   <body>
-    <% if notice && notice != "" %>      
-      <p class="notice"><%= notice %></p>
+    <div id="message">
+      <% if notice.present? %>
+        <p class="notice"><%= notice %></p>
+      <% end %>
+      <% if alert.present? %>
+        <p class="alert"><%= alert %></p>
+      <% end %>
+    </div>
+    <% if user_signed_in? %>
+      <div id="user">
+        <table style="width: 100%;">
+          <tr>
+            <td style="text-align: right;"><%= current_user.name %></td>
+            <td style="width: 100px; text-align: right;"><%= button_to "SAIR", destroy_user_session_path, method: :delete %></td>
+          </tr>
+        </table>
+      </div>      
     <% end %>
-    <% if alert && alert != "" %>      
-      <p class="alert"><%= alert %></p>
-    <% end %>
-    <%= yield %>    
+    <div id="yield"><%= yield %></div>
   </body>
 </html>
