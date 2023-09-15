@@ -1,2 +1,15 @@
 pt-BR:
   blank: &default_blank Este campo precisa ser informado
+  activerecord:
+    attributes:
+      user:
+        email: "E-mail"
+        name: "Nome"
+    errors:
+      models:
+        user:
+          attributes:
+            email:
+              invalid: "O e-mail informado é inválido"
+            name:
+              too_short: "Informe um nome com no mínimo 4 e no máximo 20 caracteres"

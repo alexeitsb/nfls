@@ -94,6 +94,8 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    email_validator (2.2.4)
+      activemodel
     erubi (1.12.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
@@ -228,6 +230,7 @@ DEPENDENCIES
   capybara
   debug
   devise (~> 4.9)
+  email_validator
   importmap-rails
   jbuilder
   mysql2 (~> 0.5)
