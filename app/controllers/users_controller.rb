@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, only: %i[ show edit update destroy ]
   
   def index
-    @users = User.all
+    @users = User.operador
   end
   
   def show
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to users_path, notice: "O USUÁRIO #{@user.name} FOI CRIADO COM SUCESSO!." }
+        format.html { redirect_to users_path, notice: "O usuário #{@user.email} foi criado com sucesso!" }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -45,6 +45,13 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.html { redirect_to users_url, notice: "User was successfully destroyed." }
       format.json { head :no_content }
+    end
+  end
+
+  def password
+    @user = User.find_by_reset_password_token(params[:reset_password_token])    
+    unless @user
+      render :file => "#{Rails.root}/public/404.html",  layout: false, status: :not_found
     end
   end
 

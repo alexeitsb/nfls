@@ -8,4 +8,4 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 # Adding a Super User
-User.create(email: "a@a.com", name: "CEKF Luiz Sérgio", password: "123456", role: 1)
+User.create(email: "a@a.com", name: "CEKF LUIZ SÉRGIO", password: "123456", role: 1)

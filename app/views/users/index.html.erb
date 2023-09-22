@@ -1,15 +1,18 @@
-<div id="users">  
-  <table>
-    <% @users.each do |user| %>
-      <tr>
-        <td style="width: 200px; border-bottom: thin solid;"><%= user.email %></td>
-        <td style="width: 400px; border-bottom: thin solid;"><%= user.name %></td>
-        <td style="border-bottom: thin solid;"><b><%= user.role_description %></b></td>
-      </tr>
-    <% end %>
-  </table>  
-</div>
+<div style="padding-bottom: 10px;"><b>USUÁRIOS</b></div>
 
-<br>
+<% if User.operador.empty? %>
+  <div><i>Nenhum usuário cadastrado!</i></div>
+<% end %>
+
+<table>
+  <% @users.each do |user| %>
+    <tr>
+      <td style="width: 200px;"><%= user.email %></td>
+      <td style="width: 400px;"><%= user.name %></td>        
+    </tr>
+  <% end %>
+</table>
+
+<div class="form_spacing"></div>
 
 <%= link_to "NOVO USUÁRIO", new_user_path %>

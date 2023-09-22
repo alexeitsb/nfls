@@ -11,5 +11,7 @@ pt-BR:
           attributes:
             email:
               invalid: "O e-mail informado é inválido"
+              taken: "O e-mail informado já existe"
             name:
               too_short: "Informe um nome com no mínimo 4 e no máximo 20 caracteres"
+              too_long: "Informe um nome com no mínimo 4 e no máximo 20 caracteres"

@@ -6,20 +6,14 @@ body {
   background-color: #DFDFDF;  
 }
 
-#message {
-  height: 70px;
-}
-
-#user {
-  height: 40px;
+table {
   width: 100%;
-  text-align: center;
-  border-bottom: solid 1px;
+  border-collapse: collapse;
 }
 
-#yield {
-  position: absolute;
-  top: 150px;
+table, td, th {
+  border: 1px solid;
+  padding: 8px 3px;
 }
 
 a {
@@ -29,6 +23,19 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+#message {
+  height: 70px;
+}
+
+#yield {
+  position: absolute;
+  top: 140px;
+}
+
+.form_spacing {
+  padding-top: 30px;
 }
 
 .field {
@@ -53,4 +60,8 @@ a:hover {
   font-weight: bold;
   background-color: #8B0000;
   padding: 10px;
+}
+
+.red {
+  color: red;
 }
