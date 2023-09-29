@@ -33,13 +33,17 @@ class User < ApplicationRecord
     end
   end
 
+  def create_token
+    update(reset_password_token: SecureRandom.hex(10), reset_password_sent_at: Time.now)
+  end
+
   private
 
   def set_create
+    return unless User.any? #skip because of seeds
     self.name.upcase!
-    self.role = 2 if User.any?
-    self.reset_password_token = SecureRandom.hex(10) if User.any?
-    self.reset_password_sent_at = Time.now if User.any?
+    self.role = 2
+    self.create_token
   end
 
 end

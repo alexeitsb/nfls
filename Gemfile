@@ -74,3 +74,5 @@ end
 gem "devise", "~> 4.9"
 
 gem "email_validator"
+
+gem "google-api-ruby-client"

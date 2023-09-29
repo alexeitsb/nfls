@@ -48,11 +48,30 @@ class UsersController < ApplicationController
     end
   end
 
+  def email
+
+  end
+
   def password
-    @user = User.find_by_reset_password_token(params[:reset_password_token])    
-    unless @user
-      render :file => "#{Rails.root}/public/404.html",  layout: false, status: :not_found
+    unless @user = User.find_by_reset_password_token(params[:reset_password_token])
+      redirect_to not_found_path
+    end    
+  end
+
+  def destroy_password
+    if @user = User.find_by_email(params[:email])
+      @user.create_token
+    else
+      redirect_to not_found_path
     end
+  end
+
+  def update_password
+    if @user = User.find_by_reset_password_token(params[:reset_password_token])
+      @user.update(password: params[:password], reset_password_token: nil, reset_password_sent_at: nil)
+    else
+      redirect_to not_found_path
+    end    
   end
 
   private    

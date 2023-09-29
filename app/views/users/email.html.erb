@@ -1,0 +1,13 @@
+<%= form_with url: "/destroy_password", method: :post do |form| %>
+  <div style="padding-bottom: 10px;">
+    <%= form.label :email, "INFORME O SEU E-MAIL", style: "display: block" %>
+    <%= form.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <div class="form_spacing"></div>
+
+  <div>
+    <%= form.submit "ENVIAR" %>
+    <%= link_to "CANCELAR", root_path %>
+  </div>
+<% end %>
