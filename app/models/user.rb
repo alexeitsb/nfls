@@ -1,7 +1,7 @@
 class User < ApplicationRecord
   ROLE = { 1 => "Administrador", 2 => "Operador" }
 
-  before_create :set_create
+  before_create :before_create
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable
@@ -39,11 +39,12 @@ class User < ApplicationRecord
 
   private
 
-  def set_create
+  def before_create
     return unless User.any? #skip because of seeds
     self.name.upcase!
     self.role = 2
-    self.create_token
+    self.reset_password_token = SecureRandom.hex(10)
+    self.reset_password_sent_at = Time.now
   end
 
 end
