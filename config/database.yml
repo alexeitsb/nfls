@@ -53,8 +53,3 @@ test:
 #   database: nfls_production
 #   username: nfls
 #   password: <%= ENV["NFLS_DATABASE_PASSWORD"] %>
-
-
-production:
-    <<: *default
-    url: <%= ENV["JAWSDB_URL"] %>
