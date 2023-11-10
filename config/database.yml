@@ -48,8 +48,12 @@ test:
 # Read https://guides.rubyonrails.org/configuring.html#configuring-a-database
 # for a full overview on how database connection configuration can be specified.
 #
+# production:
+#   <<: *default
+#   database: nfls_production
+#   username: nfls
+#   password: <%= ENV["NFLS_DATABASE_PASSWORD"] %>
+
+
 production:
-  <<: *default
-  database: nfls_production
-  username: nfls
-  password: <%= ENV["NFLS_DATABASE_PASSWORD"] %>
+    url: <%= ENV["JAWSDB_URL"] %>
