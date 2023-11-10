@@ -53,3 +53,4 @@ test:
 #   database: nfls_production
 #   username: nfls
 #   password: <%= ENV["NFLS_DATABASE_PASSWORD"] %>
+
